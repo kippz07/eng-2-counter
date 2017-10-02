@@ -1,0 +1,2 @@
+class Swear < ApplicationRecord
+end

@@ -1,0 +1,40 @@
+
+<section id="left">
+    <h1>Swear Counter</h1>
+    <% @people.each do |person| %>
+        <div>
+            <p><%= person.name %></p>
+            <p><%= person.swears %></p>
+
+            <%= form_for :person do |f| %>
+                <%= f.hidden_field :count, value: person.swears%>
+                <%= f.hidden_field :id, value: person.id%>
+                <%= f.hidden_field :action, value: "swears" %>
+                <div class="field">
+                  <%= f.submit value: "add" %>
+                </div>
+            <% end %>
+        </div>
+    <% end %>
+
+</section>
+
+<section id="right">
+    <h1>Hacked Counter</h1>
+    <% @people.each do |person| %>
+        <div>
+            <p><%= person.name %></p>
+            <p><%= person.hacks %></p>
+
+            <%= form_for :person do |f| %>
+                <%= f.hidden_field :count, value: person.hacks%>
+                <%= f.hidden_field :id, value: person.id%>
+                <%= f.hidden_field :action, value: "hacks" %>
+                <div class="field">
+                  <%= f.submit value: "add" %>
+                </div>
+            <% end %>
+        </div>
+    <% end %>
+
+</section>
