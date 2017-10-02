@@ -4,10 +4,9 @@
     <% @people.each do |person| %>
         <div>
             <p><%= person.name %></p>
-            <p><%= person.swears %></p>
+            <p><%= person.swears_today %></p>
 
             <%= form_for :person do |f| %>
-                <%= f.hidden_field :count, value: person.swears%>
                 <%= f.hidden_field :id, value: person.id%>
                 <%= f.hidden_field :action, value: "swears" %>
                 <div class="field">
@@ -24,10 +23,9 @@
     <% @people.each do |person| %>
         <div>
             <p><%= person.name %></p>
-            <p><%= person.hacks %></p>
+            <p><%= person.hacks_today %></p>
 
             <%= form_for :person do |f| %>
-                <%= f.hidden_field :count, value: person.hacks%>
                 <%= f.hidden_field :id, value: person.id%>
                 <%= f.hidden_field :action, value: "hacks" %>
                 <div class="field">
