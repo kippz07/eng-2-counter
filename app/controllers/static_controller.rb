@@ -1,7 +1,7 @@
 class StaticController < ApplicationController
 
     def home
-        @people = Person.all
+        @people = Person.all.order(id: :asc)
     end
 
     def update
