@@ -19,8 +19,8 @@ class StaticController < ApplicationController
       last_date = date.split(" ")[0]
       datetime_now = DateTime.now.to_s
 
-      # date_now = datetime_now.split("T")[0]
-      date_now = "2017/10/04"
+      date_now = datetime_now.split("T")[0]
+      # date_now = "2017/10/04"
 
       Person.update_count(person, person_params[:action], date_now, last_date)
 
