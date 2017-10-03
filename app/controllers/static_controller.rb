@@ -19,26 +19,10 @@ class StaticController < ApplicationController
       last_date = date.split(" ")[0]
       datetime_now = DateTime.now.to_s
 
-      date_now = datetime_now.split("T")[0]
-      # date_now = "2017/10/03"
+      # date_now = datetime_now.split("T")[0]
+      date_now = "2017/10/04"
 
-      if person_params[:action] == "swears"
-          if date_now != last_date 
-              person.update_attribute(:swears_today, 0)
-          else
-              person.update_attribute(:swears_today, person.swears_today + 1)
-              person.update_attribute(:swears, person.swears + 1)
-          end
-          
-      else
-          if date_now != last_date 
-              person.update_attribute(:hacks_today, 0)
-          else
-              person.update_attribute(:hacks_today, person.hacks_today + 1)
-              person.update_attribute(:hacks, person.hacks + 1)
-          end
-          
-      end
+      Person.update_count(person, person_params[:action], date_now, last_date)
 
       redirect_to "/"
   end

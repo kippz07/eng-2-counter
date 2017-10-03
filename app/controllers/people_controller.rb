@@ -1,7 +1,12 @@
 class PeopleController < ApplicationController
+  before_action :authenticate_admin
   before_action :authenticate_user!
   before_action :set_person, only: [:show, :edit, :update, :destroy]
 
+
+  def authenticate_admin
+    redirect_to '/users/sign_in' unless current_user && access_whitelist
+  end
   # GET /people
   # GET /people.json
   def index
@@ -71,5 +76,9 @@ class PeopleController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def person_params
       params.fetch(:person, {})
+    end
+
+    def access_whitelist
+      current_user.try(:admin?) || current_user.try(:door_super?)
     end
 end
