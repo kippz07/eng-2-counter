@@ -12,8 +12,8 @@ class StaticController < ApplicationController
         last_date = date.split(" ")[0]
         datetime_now = DateTime.now.to_s
 
-        # date_now = datetime_now.split("T")[0]
-        date_now = "2017/10/03"
+        date_now = datetime_now.split("T")[0]
+        # date_now = "2017/10/03"
 
         if person_params[:action] == "swears"
             if date_now != last_date 
