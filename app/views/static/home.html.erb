@@ -15,24 +15,52 @@
             <% end %>
         </div>
     <% end %>
-
 </section>
 
 <section id="right">
-    <h1>Hacked Counter</h1>
-    <% @people.each do |person| %>
-        <div>
-            <p><%= person.name %></p>
-            <p><%= person.hacks_today %></p>
-
-            <%= form_for :person do |f| %>
-                <%= f.hidden_field :id, value: person.id%>
-                <%= f.hidden_field :action, value: "hacks" %>
-                <div class="field">
-                  <%= f.submit value: "add" %>
-                </div>
-            <% end %>
-        </div>
+    <h2>Worst offender(s) of the day:</h2>
+    <ul>
+    <% @wod.each do |person| %>
+        <% if person.swears_today != 0 %>
+            <li><%= person.name %></li>
+        <% end %>
     <% end %>
+    </ul>
 
+    <h2>Worst offender(s) of the week:</h2>
+    <ul>
+    <% @wow.each do |person| %>
+        <% if person.swears_week != 0 %>
+            <li><%= person.name %></li>
+        <% end %>
+    <% end %>
+    </ul>
+
+    <h2>Worst offender(s) of all time:</h2>
+    <ul>
+    <% @wit.each do |person| %>
+        <% if person.swears != 0 %>
+            <li><%= person.name %></li>
+        <% end %>
+    <% end %>
+    </ul>
 </section>
+
+<!-- <section id="right">
+    <h1>Hacked Counter</h1>
+    <%# @people.each do |person| %>
+        <div>
+            <p><%# person.name %></p>
+            <p><%# person.hacks_today %></p>
+
+            <%# form_for :person do |f| %>
+                <%# f.hidden_field :id, value: person.id%>
+                <%# f.hidden_field :action, value: "hacks" %>
+                <div class="field">
+                  <%# f.submit value: "add" %>
+                </div>
+            <%# end %>
+        </div>
+    <%# end %>
+
+</section> -->

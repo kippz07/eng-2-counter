@@ -6,11 +6,14 @@ class StaticController < ApplicationController
       redirect_to '/users/sign_in' unless current_user && access_whitelist
   end
 
-
   def home
       @people = Person.all.order(id: :asc)
       datetime_now = DateTime.now.to_s
       puts Person.update_week datetime_now
+      @wod = Person.get_swears_day
+      @wow = Person.get_swears_week
+      @wit = Person.get_swears_total
+
   end
 
   def update

@@ -77,4 +77,22 @@ class Person < ApplicationRecord
     (year + month + century + day) % 7
   end
 
+  def self.get_swears_day
+    people = Person.all.order(swears_today: :desc)
+    max_swears = people.first.swears_today
+    people.where(swears_today: max_swears)
+  end
+
+  def self.get_swears_week
+    people = Person.all.order(swears_week: :desc)
+    max_swears = people.first.swears_week
+    people.where(swears_week: max_swears)
+  end
+
+  def self.get_swears_total
+    people = Person.all.order(swears: :desc)
+    max_swears = people.first.swears
+    people.where(swears: max_swears)
+  end
+
 end
