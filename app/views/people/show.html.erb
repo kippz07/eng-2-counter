@@ -1,4 +1,9 @@
 <p id="notice"><%= notice %></p>
 
+<%= @person.name %>
+<%= @person.swears_today %>
+<%= @person.swears_week %>
+<%= @person.swears %>
+
 <%= link_to 'Edit', edit_person_path(@person) %> |
 <%= link_to 'Back', people_path %>
