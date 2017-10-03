@@ -1,2 +1,0 @@
-class Hack < ApplicationRecord
-end
