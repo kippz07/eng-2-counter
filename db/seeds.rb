@@ -30,3 +30,5 @@ person20 = Person.create!(name: 'Sophie')
 
 # swear1 = Swear.create!(people_id: person1.id)
 # hack1 = Hack.create!(people_id: person1.id)
+
+user1 = User.create!(email: "jennyj@spartaglobal.com", password: "sparta1984", admin: true)
