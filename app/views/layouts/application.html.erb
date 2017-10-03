@@ -9,6 +9,12 @@
   </head>
 
   <body>
+    <header>
+      <div id="header-div">
+        <p id="login-items"><%= render 'devise/menu/login_items' %></p>
+      </div>
+    </header>
+
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
